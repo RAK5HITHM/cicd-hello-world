@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Hello-world
+  name: hello-world
 spec:
   selector:
     matchLabels:
-      app: Hello-world
+      app: hello-world
   template:
     metadata:
       labels:
-        app: Hello-world
+        app: hello-world
     spec:
       containers:
-      - name: Hello-world
+      - name: hello-world
         image: rakshithraka/first-repo:v2
         resources:
           limits:
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: Front
+  name: front
 spec:
   type: NodePort
   selector:
-    app: Hello-world
+    app: hello-world
   ports:
   - port: 44
     targetPort: 5000
