@@ -21,5 +21,11 @@ pipeline
             sh 'docker push rakshithraka/first-repo:v2'
          }
         }
+        stage("Deploy to K8S")
+        { 
+          steps{
+            sh 'kubectl apply -f deploy.yml'
+          } 
+        }
     }          
  }
